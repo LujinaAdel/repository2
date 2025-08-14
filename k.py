@@ -1,4 +1,4 @@
-class Person:
+class person:
     def __init__(self, name, gender, age, job, position="Employee"):
         self.name = name
         self.gender = gender
@@ -7,39 +7,43 @@ class Person:
         self.position = position
 
     def details(self):
-        return f"Name: {self.name}\nGender: {self.gender}\nAge: {self.age}\nJob: {self.job}\nPosition: {self.position}"
+        return f"your Name: {self.name}\nthe gender: {self.gender}\nthe age: {self.age}\nyour job: {self.job}\nyour position: {self.position}"
 
-
-class Employees(Person):
+class Employees(person):
     def __init__(self, name, gender, age, job):
         super().__init__(name, gender, age, job, position="Employee")
+        self.position = "Employee"
 
-
-class TeamLeader(Employees):
+    def details(self):
+        return super().details()
+    
+class team_leader(Employees):
     def __init__(self, name, gender, age, job, team_members):
         super().__init__(name, gender, age, job)
         self.team_members = team_members
-        self.position = "Team Leader"
-
+        self.position = "Team leader"
+    
     def details(self):
-        team_members_details = "\n".join([member.name for member in self.team_members])
-        return f"{super().details()}\nTeam Members:\n{team_members_details}"
+        members_names = " ".join([m.name for m in self.team_members])
+        return f"{super().details()}\nTeam Members: {members_names}"
+    
 
+Ahmed = person("Ahmed Mohamed", "Male", 16, "Backend developer", "Employee")
 
-Ahmed = Person("Ahmed Mohamed", "Male", 16, "Backend Developer", "Employee")
 nour = Employees("Nour Ibrahim", "Male", 16, "Backend Developer")
 hana = Employees("Hana", "Female", 15, "Backend Developer")
 moaz = Employees("Moaz Waleed", "Male", 16, "Backend Developer")
 
-lujina = TeamLeader("Lujina Adel", "Female", 16, "Backend Developer", [Ahmed, nour, hana, moaz])
+lujina = team_leader("Lujina Adel", "Female", 16, "Backend Developer", [Ahmed, nour, hana, moaz])
+
 
 print("Person Details:")
 print(Ahmed.details())
 
-print("\nEmployees Details:")
+print("Employees Details:")
 print(nour.details())
 print(hana.details())
 print(moaz.details())
 
-print("\nTeam Leader Details:")
+print("Team Leader Details:")
 print(lujina.details())

@@ -1,4 +1,4 @@
-from  k import person
+from  taskoop import person
 class TeamLeader(person):
     def details(self):
         original_details = super().details()

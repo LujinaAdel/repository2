@@ -1,5 +1,5 @@
-from  kk import Person
-class TeamLeader(Person):
+from  k import person
+class TeamLeader(person):
     def details(self):
         original_details = super().details()
         
@@ -13,7 +13,7 @@ class TeamLeader(Person):
 
 
 if __name__ == "__main__":
-    team_members= ["",""]
+    team_members = []  
     leader0 = TeamLeader ("Ahmed Mohamed ", "Male", 25, "Backend Developer" , team_members)
     print(leader0.details())
     leader = TeamLeader("Lujina Adel", "female", 20, "Backend Developer", team_members)
