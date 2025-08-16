@@ -21,9 +21,8 @@ class TeamLeader(Employees):
         self.team_members = team_members
         self.position = "Team Leader"
 
-    def details(self):
-        team_members_details = "\n".join([member.name for member in self.team_members])
-        return f"{super().details()}\nTeam Members:\n{team_members_details}"
+def details(self):
+    return f"{super().details()}Team Members:{(self.team_members)}"
 
 
 Ahmed = Person("Ahmed Mohamed", "Male", 16, "Backend Developer", "Employee")
